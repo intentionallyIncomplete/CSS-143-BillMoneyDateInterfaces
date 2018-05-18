@@ -26,6 +26,18 @@ public class Money implements Comparable, Cloneable, Serializable{
 		this.cents = other.cents;
 	}
 	
+	/* *
+	* This clone() method 
+	*
+	*
+	* @param
+	* @param
+	* @param
+	* @param
+	* @see
+	* @see
+	* */
+	@Override
 	public Money clone(){
 		try{
 			Money newMoney = (Money) super.clone();
@@ -41,27 +53,30 @@ public class Money implements Comparable, Cloneable, Serializable{
 	//else print a different message and return false.
 	//the equals method here compares them as doubles.
 	@Override
-	public boolean equals(Object o){
-		if(this == o){
-			System.out.println("The amount " + this + " is equal to " + o);
+	public boolean equals(Object otherAmount){
+		Money tempMoneyObj = (Money) otherAmount;
+		
+		if(this.getMoney() == tempMoneyObj.getMoney()){
 			return true;
 		}else{
-			System.out.println("The amount " + this + " is not equal to " + o);
 			return false;
 		}
 	}
 	
+	/*
+	 * 
+	 * */
 	@Override
 	public int compareTo(Object otherMoney){
+		
 		Money tempMoneyObj = (Money) otherMoney;
 		
-		if(getMoney() != (tempMoneyObj.getMoney())){
+		if(this.equals(tempMoneyObj)){
 			return -1;
 		}else{return 1;}
 	}
 	
-	//will take in dollar amount
-	//and add to current count.
+	/* Will take in dollar amount and add to current count.*/
 	public void add(int dollars){
 		this.dollars += dollars;
 	}

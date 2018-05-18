@@ -73,9 +73,14 @@ public class ArrayList<T> {
 	}
 	
 	public int getNextElement(){
-		for(int i=0;i<){
-			
+		for(int i=0;i<arrList.length;i++){
+			if(arrList[i] == null){
+				return nextElement;
+			}else{
+				return -1;
+			}
 		}
+		return nextElement;
 	}
 	
 	/*****************************************************/

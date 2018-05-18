@@ -38,6 +38,10 @@ public class Bill implements Comparable, Cloneable, Serializable{
 		this.originator = toCopy.originator;
 	}
 	
+	/*
+	 * 
+	 * */
+	@Override
 	public Bill clone(){
 		try {
 			Bill newBill = (Bill) super.clone();
@@ -55,23 +59,34 @@ public class Bill implements Comparable, Cloneable, Serializable{
 	}
 
 	/****************************************************/
-	/* This method will check if the amount of money 	*/
-	/* returned from Money is 0. If that's true, then	*/
-	/* return true, else the value is GT than 0 and must*/
-	/* return false.									*/
+	/* This method will check if the paidDate Date		*/
+	/* object is set or not, if not then the bill hasn't*/
+	/* been paid and the method should return false.	*/
+	/* Of course, if it's not null, then the bill has	*/
+	/* been paid.										*/
 	/****************************************************/
 	public boolean isPaid(){
-		if(this.amount.getMoney() == 0){
+		if(paidDate != null){
 			return true;
 		}else{
 			return false;
 		}
 	}
 
-	//checking the current bill with an "updated"
-	//one that may have different values.
+	/*
+	 * <p>
+	 * Custom equals() method. This method has one parameter that is an Object
+	 * data type and holds the current values of the Bill object. 
+	 * The new values are compared against the previous instantiated values.
+	 * </p>
+	 * 
+	 * @param toCompare is an Object that holds the current values of the
+	 * Bill class fields such as the amount and dueDate
+	 * */
+	@Override
 	public boolean equals(Object toCompare){
-		if(this.toString().equals(toCompare.toString())){
+		Bill tempBillObj = (Bill) toCompare;
+		if(this.amount.equals(tempBillObj.getAmount())){
 			return true;
 		}else{
 			return false;
@@ -80,23 +95,18 @@ public class Bill implements Comparable, Cloneable, Serializable{
 	
 	
 	/*
-	 * 
+	 * This compareTo() method 
 	 * 
 	 * */
 	public int compareTo(Object other){
 		
 		Bill tempBillObj = (Bill) other;
 		
-		if(!getAmount().equals(tempBillObj.getAmount())){
-			System.out.println("Amounts are different");
+		if(this.equals(tempBillObj)){
+			return 1;
+		}else{
 			return -1;
-		}else if(!getDueDate().equals(tempBillObj.getDueDate())){
-			System.out.println("Due dates are not the same");
-			return -1;
-		}else if(!getOriginator().equals(tempBillObj.getOriginator())){
-			System.out.println("The origin of the bill is no longer the same");
-			return -1;
-		}else{return 1;}
+		}
 	}
 	
 	/****************************************************/
@@ -131,11 +141,13 @@ public class Bill implements Comparable, Cloneable, Serializable{
 		}
 	}
 
-	//this boolean method will check for the next
-	//provided date value. if the method isPaid is true,
-	//then the dueDate is irrelevant and the method returns false
-	//or else if the bill is not paid, then update the dueDate
-	//to the provided value of nextDate.
+	/*
+	 * This boolean method will check for the next
+	 * provided date value. if the method isPaid is true,
+	 * then the dueDate is irrelevant and the method returns false
+	 * or else if the bill is not paid, then update the dueDate
+	 * to the provided value of nextDate.
+	 * */
 	public boolean setDueDate(Date nextDate){
 		if(isPaid()){
 			return false;
@@ -145,10 +157,16 @@ public class Bill implements Comparable, Cloneable, Serializable{
 		}
 	}
 
-	//this method will take in a new Money object
-	//that has a value. Then a condition is checked
-	//that if that new value is 0, the bill is paid,
-	//else the amount is set to the latest value.
+	/*
+	 * This method will take in a new Money object
+	 * that has a value. Then a condition is checked
+	 * that if that new value is 0, the bill is paid,
+	 * else the amount is set to the latest value.
+	 * 
+	 * @param amount is a Money object.
+	 * @see class variable delcarations
+	 */
+	
 	public boolean setAmount(Money amount){
 		if(isPaid()){
 			assert(amount != null);
@@ -159,19 +177,25 @@ public class Bill implements Comparable, Cloneable, Serializable{
 		}
 	}
 
-	public void setOriginator(String originator){
-		this.originator = originator;
-	}
+//	private void setOriginator(String originator){
+//		this.originator = originator;
+//	}
 
 	/****************************************************/
 	/* End setters */
 	/****************************************************/
-	//custom toString method will get the amount of money,
-	//the dueDate, the paidDate, and the name of the company
-	//doing the billing and tell the person the status of the 
-	//transactions. The return String is different depending on the 
-	//condition of isPaid. When true, it will print the first String,
-	//else it will print the other.
+	
+	/*
+	 * custom toString method will get the amount of money,(non-Javadoc).
+	 * the dueDate, the paidDate, and the name of the company
+	 * doing the billing and tell the person the status of the 
+	 * transactions. The return String is different depending on the 
+	 * condition of isPaid. When true, it will print the first String,
+	 * else it will print the other.
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	
 	public String toString(){
 		if(isPaid()){
 			assert(paidDate != null);

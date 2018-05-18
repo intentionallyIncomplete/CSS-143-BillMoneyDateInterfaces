@@ -63,7 +63,11 @@ public class Date implements Comparable, Cloneable, Serializable{
 		}
 	}
 
-	//checking for equivalence
+	/*
+	 * This method has one parameter that is an Object
+	 * used to check against the current Object for
+	 * equivalence. 
+	 * */
 	@Override
 	public boolean equals(Object date){
 		//using the custom toString method on both
@@ -78,31 +82,28 @@ public class Date implements Comparable, Cloneable, Serializable{
 		}
 	}
 
+	/* *
+	* Custom compareTo method that overrides the
+	* compareTo method from the Comparable interface.
+	* Returns an integer similarly to the native compareTo
+	* method. 1 for a match, and -1 for difference.
+	*
+	* @param otherDate is an object data type variable
+	* that represents a Date value. 
+	* @param tempDateObj is the current date being compared to
+	* the previous instantiation. Assigned with a cast to the Date class
+	* on the Object otherDate.
+	* @see compareTo() in Comparable interface
+	* @see overriden equals() method in Date
+	* */
 	@Override
 	public int compareTo(Object otherDate){
 		Date tempDateObj = (Date) otherDate;
 
-		if(getDay() < tempDateObj.getDay()){
-			System.out.println("Current day comes after the previous day input");
-			return -1;
-		}else if(getDay() > tempDateObj.getDay()){
-			System.out.println("Current day comes before the previous day input");
-			return -1;
-		}else if(getMonth() < tempDateObj.getDay()){
-			System.out.println("Current month comes after the previous month");
-			return -1;
-		}else if(getMonth() > tempDateObj.getMonth()){
-			System.out.println("Current month comes before the previous month");
-			return -1;
-		}else if(getYear() < tempDateObj.getYear()){
-			System.out.println("Current year comes after the previous year");
-			return -1;
-		}else if(getYear() > tempDateObj.getYear()){
-			System.out.println("Current year comes before the previous year");
-			return -1;
-		}else{
-			System.out.println("Dates are the same");
+		if(this.equals(tempDateObj)){
 			return 1;
+		}else{
+			return -1;
 		}
 	}
 

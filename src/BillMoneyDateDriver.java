@@ -70,7 +70,7 @@ public class BillMoneyDateDriver
 		/*****************************************************/
 		//Construct some bills
 		Money amount = new Money(50);
-		Money amount1 = new Money(25);
+		Money amount1 = new Money(50);
 		Date dueDate = new Date(4, 30, 2017);
 		Date datePaid = new Date(5, 15, 2017);
 
@@ -78,20 +78,20 @@ public class BillMoneyDateDriver
 		//from the Money object 'amount' and the Date object
 		//'dueDate'. Then copy it using the copy ctor in
 		//the Bill class.
-		Bill bill1 = new Bill(amount, dueDate, "The phone company");
-		Bill bill2 = new Bill(amount1, dueDate, "Another Company");
+		//Bill bill1 = new Bill(amount, dueDate, "The phone company");
+		//Bill bill2 = new Bill(amount1, dueDate, "Another Company");
 
-		System.out.println("----------Constructing Bill 1------------");
-		System.out.println(bill1);
-		System.out.println("----------Constructing Bill 2------------");
-		System.out.println(bill2);
+		//System.out.println("----------Constructing Bill 1------------");
+		//System.out.println(bill1);
+		//System.out.println("----------Constructing Bill 2------------");
+		//System.out.println(bill2);
 		
 		/************************************************************/
 		/*			Testing compareTo() method for each class		*/
 		
-//		Bill billTest1 = new Bill(amount, dueDate, "the phone company");
-//		Bill billTest2 = new Bill(amount1, dueDate, "the evil phone company");
-//		System.out.println(billTest1.compareTo(billTest2));
+		Bill billTest1 = new Bill(amount, dueDate, "the phone company");
+		Bill billTest2 = new Bill(amount1, dueDate, "the evil phone company");
+		System.out.println(billTest1.compareTo(billTest2));
 		
 //		Date testDate1 = new Date(5,04,2016);
 //		Date testDate2 = new Date(5,05,2017);
@@ -104,6 +104,8 @@ public class BillMoneyDateDriver
 		
 		/*				End Testing compareTo() method			*/
 		/********************************************************/
+		
+		//ExpenseAccount testExpAcc = new ExpenseAccount(bill1);
 		
 		//checking the equals method
 		//will be reused a few times to 
