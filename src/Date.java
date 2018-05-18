@@ -72,11 +72,12 @@ public class Date implements Comparable, Cloneable, Serializable{
 		Date tempDateObj = (Date) otherDate;
 
 		if(getDay() < tempDateObj.getDay()){
-			System.out.println("Current date is after the previous date");
+			System.out.println("Current day comes after the previous day input");
 			return -1;
-		}else if(getMonth() == tempDateObj.getMonth()){
-			System.out.println(x);
-		}
+		}else if(getDay() > tempDateObj.getDay()){
+			System.out.println("Current day comes before the previous day input");
+			return -1;
+		}else{return 1;}
 	}
 
 	/*****************/

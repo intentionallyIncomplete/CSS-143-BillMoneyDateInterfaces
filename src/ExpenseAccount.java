@@ -1,4 +1,4 @@
 
-public class ExpenseAccount {
+public class ExpenseAccount extends ArrayList {
 
 }

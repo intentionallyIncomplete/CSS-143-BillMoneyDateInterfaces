@@ -41,6 +41,14 @@ public class Money implements Comparable, Cloneable, Serializable{
 		}
 	}
 	
+	public int compareTo(Object otherMoney){
+		Money tempMoneyObj = (Money) otherMoney;
+		
+		if(getMoney() == (tempMoneyObj.getMoney())){
+			return -1;
+		}else{return 1;}
+	}
+	
 	//will take in dollar amount
 	//and add to current count.
 	public void add(int dollars){

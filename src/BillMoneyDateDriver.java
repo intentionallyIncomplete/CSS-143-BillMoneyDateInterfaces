@@ -81,11 +81,15 @@ public class BillMoneyDateDriver
 		Bill bill1 = new Bill(amount, dueDate, "The phone company");
 		Bill bill2 = new Bill(amount1, dueDate, "Another Company");
 
-		System.out.println("----------Bill 1------------");
+		System.out.println("----------Constructing Bill 1------------");
 		//System.out.println(bill1);
-		System.out.println("----------Bill 2------------");
+		System.out.println("----------Constructing Bill 2------------");
 		//System.out.println(bill2);
-		System.out.println(bill1.compareTo(bill2));
+		//System.out.println(bill1.compareTo(bill2));
+		
+		Date testDate1 = new Date(5,04,2017);
+		Date testDate2 = new Date(5,05,2017);
+		System.out.println(testDate1.compareTo(testDate2));
 		//checking the equals method
 		//will be reused a few times to 
 		//keep track of the bills.
