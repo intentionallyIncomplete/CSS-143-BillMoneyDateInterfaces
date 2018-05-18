@@ -1,6 +1,12 @@
 /**
- HW3.java: Simple driver to test Money, Date, and Bill classes
- @author Rob Nash, borrowed from cfolsen
+ * @author Ian Bryan
+ * 
+ * Note: Uncomment for testing. Each added method has its own area
+ * in the main method for testing from each class.
+ * 
+ * All comments previously not in Javadoc format have been converted
+ * with exclusion to the lines that are to be uncommented one at a time
+ * for testing. 
  */
 public class BillMoneyDateDriver
 {
@@ -43,7 +49,7 @@ public class BillMoneyDateDriver
 		//          System.out.println(money1);
 
 		/****************************************************/
-		/* Testing the Date class */
+		/*				Testing the Date class				*/
 		/****************************************************/
 //		Date date1 = new Date(1,1,2016);
 //		Date date2 = new Date(1,1,2016);
@@ -66,11 +72,12 @@ public class BillMoneyDateDriver
 		//date1.setYear(1995);
 
 		/*****************************************************/
-		/* Testing the Bill class							 */
+		/*				Testing the Bill class				 */
 		/*****************************************************/
-		//Construct some bills
+		//Construct some bills fields to go through to
+		//the constructor for Bill
 		Money amount = new Money(50);
-		Money amount1 = new Money(50);
+		//Money amount1 = new Money(50);
 		Date dueDate = new Date(4, 30, 2017);
 		Date datePaid = new Date(5, 15, 2017);
 
@@ -78,7 +85,7 @@ public class BillMoneyDateDriver
 		//from the Money object 'amount' and the Date object
 		//'dueDate'. Then copy it using the copy ctor in
 		//the Bill class.
-		//Bill bill1 = new Bill(amount, dueDate, "The phone company");
+		Bill bill1 = new Bill(amount, dueDate, "The phone company");
 		//Bill bill2 = new Bill(amount1, dueDate, "Another Company");
 
 		//System.out.println("----------Constructing Bill 1------------");
@@ -88,26 +95,26 @@ public class BillMoneyDateDriver
 		
 		/************************************************************/
 		/*			Testing compareTo() method for each class		*/
-		
-		Bill billTest1 = new Bill(amount, dueDate, "the phone company");
-		Bill billTest2 = new Bill(amount1, dueDate, "the evil phone company");
+		/************************************************************/
 		
 //		System.out.println(amount.compareTo(amount1));
-//		System.out.println(billTest1.compareTo(billTest2));
+//		System.out.println(bill1.compareTo(bill2));
 		
-//		Date testDate1 = new Date(5,04,2016);
-//		Date testDate2 = new Date(5,05,2017);
-//		System.out.println(testDate1.compareTo(testDate2));
+//		Date testDueDate1 = new Date(5,04,2016);
+//		Date testDueDate2 = new Date(5,05,2017);
+//		System.out.println(testDueDate1.compareTo(testDueDate2));
 		
 //		Money moneyTest1 = new Money(20);
 //		Money moneyTest2 = new Money(25);
 //		System.out.println(moneyTest1.compareTo(moneyTest2));
 		
-		
+		/********************************************************/
 		/*				End Testing compareTo() method			*/
 		/********************************************************/
 		
-		//ExpenseAccount testExpAcc = new ExpenseAccount(bill1);
+		ExpenseAccount testExpAcc = new ExpenseAccount();
+		testExpAcc.addABill(bill1);
+		testExpAcc.show();
 		
 		//checking the equals method
 		//will be reused a few times to 

@@ -205,7 +205,8 @@ public class Bill implements Comparable, Cloneable, Serializable{
 					+ "\nDate Paid: " + this.paidDate;
 		}else{
 			return "Amount Due: " + this.amount + "\nCurrent Due Date: "
-					+ this.dueDate.toString() + "\nOrigin of Bill: " + this.originator;
+					+ this.dueDate.toString() + "\nOrigin of Bill: " + this.originator
+					+ "\nBill is unpaid or outstanding";
 		}
 	}
 }

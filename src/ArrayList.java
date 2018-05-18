@@ -8,7 +8,7 @@ public class ArrayList<T> {
 	/* arrListSize is determined by the number of args	 */
 	/* passed to the constructor						 */
 	/*****************************************************/
-	private Object[] arrList = new Object[5];
+	private Object[] arrList;
 	private int nextElement = 0;
 	private int arrListSize;
 
@@ -19,7 +19,7 @@ public class ArrayList<T> {
 	}
 	
 	public ArrayList(){
-		arrList = new Object[10];
+		arrList = new Object[5];
 		nextElement = 0;
 	}
 
@@ -29,7 +29,7 @@ public class ArrayList<T> {
 	/* does not check for valid input					 */
 	/*****************************************************/
 	public void insert(Object anElement, int index){
-			arrList[index] = anElement;
+			arrList[index++] = anElement;
 	}
 
 	/*****************************************************/
@@ -56,7 +56,7 @@ public class ArrayList<T> {
 	/*****************************************************/
 	public void show(){
 		for(Object i : arrList){
-			System.out.println(i + " ");
+			System.out.println(i.toString());
 		}
 	}
 
@@ -72,6 +72,10 @@ public class ArrayList<T> {
 		}
 	}
 	
+	/*
+	 * 
+	 * 
+	 * */
 	public int getNextElement(){
 		for(int i=0;i<arrList.length;i++){
 			if(arrList[i] == null){
@@ -89,6 +93,7 @@ public class ArrayList<T> {
 	/* string object with a space appended between the	 */
 	/* elements in the object array						 */
 	/*****************************************************/
+	@Override
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		
