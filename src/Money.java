@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Money {
+public class Money implements Comparable, Cloneable, Serializable{
 
 	//class variables
 	private int dollars;

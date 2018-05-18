@@ -1,4 +1,6 @@
-public class Date {
+import java.io.Serializable;
+
+public class Date implements Comparable, Cloneable, Serializable{
 
 	//class variables
 	private int day;
@@ -66,6 +68,17 @@ public class Date {
 		}
 	}
 
+	public int compareTo(Object otherDate){
+		Date tempDateObj = (Date) otherDate;
+
+		if(getDay() < tempDateObj.getDay()){
+			System.out.println("Current date is after the previous date");
+			return -1;
+		}else if(getMonth() == tempDateObj.getMonth()){
+			System.out.println(x);
+		}
+	}
+
 	/*****************/
 	/* Begin getters */
 	/*****************/
@@ -118,7 +131,7 @@ public class Date {
 			this.year = year;
 		}
 	}
-	
+
 	/**************/
 	/* end setters*/
 	/**************/
