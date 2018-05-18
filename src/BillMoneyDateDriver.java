@@ -112,9 +112,13 @@ public class BillMoneyDateDriver
 		/*				End Testing compareTo() method			*/
 		/********************************************************/
 		
-		ExpenseAccount testExpAcc = new ExpenseAccount();
-		testExpAcc.addABill(bill1);
-		testExpAcc.show();
+		//ExpenseAccount testExpAcc = new ExpenseAccount();
+		//testExpAcc.addABill(bill1);
+		//testExpAcc.show();
+		
+		/*Testing the clone method for Bill objects*/
+		Bill bill2 = bill1.clone();
+		System.out.println(bill2);
 		
 		//checking the equals method
 		//will be reused a few times to 

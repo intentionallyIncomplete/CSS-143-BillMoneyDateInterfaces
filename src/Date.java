@@ -33,13 +33,24 @@ public class Date implements Comparable, Cloneable, Serializable{
 		}
 	}
 
-	//copy ctor
+	/* DEPRECIATED 
+	 * 
+	 * This copy constructor is no longer used
+	 * @see overriden clone() method
+	 * 
+	 * */
 	public Date(Date other){
 		this.day = other.day;
 		this.month = other.month;
 		this.year = other.year;
 	}
 	
+	/*
+	 *  This method overrides the default clone() method
+	 * that is protected in the Cloneable interface and
+	 * replaces the need for the copy constructor above
+	 * 
+	 * */
 	public Date clone(){
 		try{
 			Date newDate = (Date) super.clone();

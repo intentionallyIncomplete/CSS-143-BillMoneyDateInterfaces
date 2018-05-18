@@ -39,7 +39,11 @@ public class Bill implements Comparable, Cloneable, Serializable{
 	}
 	
 	/*
-	 * 
+	 * This method overrides the protected clone()
+	 * method from the Cloneable interface. A new Bill object
+	 * is instantiated using the current values of Bill. Then,
+	 * the super class ctor of Cloneable is invoked to create a copy
+	 * of the fields specified within the try{} block.
 	 * */
 	@Override
 	public Bill clone(){
@@ -95,9 +99,16 @@ public class Bill implements Comparable, Cloneable, Serializable{
 	
 	
 	/*
-	 * This compareTo() method 
+	 * This compareTo() method overrides the default
+	 * compareTo() method and acts in a similar fashion.
+	 * The return value is an integer of 1 for the objects
+	 * being equal, or else if they are not then return -1. 
+	 * 
+	 * @param other is an Object data type used to
+	 * pass the values of a Bill through into the method.
 	 * 
 	 * */
+	@Override
 	public int compareTo(Object other){
 		
 		Bill tempBillObj = (Bill) other;
@@ -126,16 +137,23 @@ public class Bill implements Comparable, Cloneable, Serializable{
 	/****************************************************/
 	/* End getters, begin setters */
 	/****************************************************/
-	//will use the isAfter method from the Date class
-	//to compare the dueDate object value to the 
-	//datePaid object's value. If the dueDate object
-	//returns false from isAfter, then return false for setPaid
-	//else update the paidDate with the value of datePaid 
-	//and return true.
+	
+	/*
+	 * This setter method will use the isAfter method
+	 * from the Date class to compare 
+	 * the dueDate object value to the 
+	 * datePaid object's value. If the dueDate object
+	 * returns false from isAfter, then return false for setPaid
+	 * else update the paidDate with the value of datePaid 
+	 * and return true.
+	 */
 	public boolean setPaid(Date datePaid){
 		if(datePaid.isAfter(dueDate)){
+			this.paidDate = datePaid;
+			System.out.println("Bill was outstanding and not paid on time");
 			return false;
 		}else{
+			System.out.println("Bill has been paid on: " + datePaid);
 			this.paidDate = datePaid;
 			return true;
 		}
@@ -177,10 +195,6 @@ public class Bill implements Comparable, Cloneable, Serializable{
 			return true;
 		}
 	}
-
-//	private void setOriginator(String originator){
-//		this.originator = originator;
-//	}
 
 	/****************************************************/
 	/* End setters */
