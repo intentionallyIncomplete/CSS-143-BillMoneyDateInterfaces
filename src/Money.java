@@ -26,11 +26,21 @@ public class Money implements Comparable, Cloneable, Serializable{
 		this.cents = other.cents;
 	}
 	
+	public Money clone(){
+		try{
+			Money newMoney = (Money) super.clone();
+			return newMoney;
+		}catch(CloneNotSupportedException e){
+			return null;
+		}
+	}
+
 	//if the current object's return value
 	//is equal to the one compared against, 
 	//print a message and return true,
 	//else print a different message and return false.
 	//the equals method here compares them as doubles.
+	@Override
 	public boolean equals(Object o){
 		if(this == o){
 			System.out.println("The amount " + this + " is equal to " + o);
@@ -41,10 +51,11 @@ public class Money implements Comparable, Cloneable, Serializable{
 		}
 	}
 	
+	@Override
 	public int compareTo(Object otherMoney){
 		Money tempMoneyObj = (Money) otherMoney;
 		
-		if(getMoney() == (tempMoneyObj.getMoney())){
+		if(getMoney() != (tempMoneyObj.getMoney())){
 			return -1;
 		}else{return 1;}
 	}
@@ -96,6 +107,7 @@ public class Money implements Comparable, Cloneable, Serializable{
 
 	//String.format(format, arg) is there to set the returned amount
 	//to display as a number with two decimal places
+	@Override
 	public String toString(){
 		return "$" + String.format("%.2f", getMoney());
 	}

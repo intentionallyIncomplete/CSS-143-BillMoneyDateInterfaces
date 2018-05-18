@@ -82,14 +82,29 @@ public class BillMoneyDateDriver
 		Bill bill2 = new Bill(amount1, dueDate, "Another Company");
 
 		System.out.println("----------Constructing Bill 1------------");
-		//System.out.println(bill1);
+		System.out.println(bill1);
 		System.out.println("----------Constructing Bill 2------------");
-		//System.out.println(bill2);
-		//System.out.println(bill1.compareTo(bill2));
+		System.out.println(bill2);
 		
-		Date testDate1 = new Date(5,04,2017);
-		Date testDate2 = new Date(5,05,2017);
-		System.out.println(testDate1.compareTo(testDate2));
+		/************************************************************/
+		/*			Testing compareTo() method for each class		*/
+		
+//		Bill billTest1 = new Bill(amount, dueDate, "the phone company");
+//		Bill billTest2 = new Bill(amount1, dueDate, "the evil phone company");
+//		System.out.println(billTest1.compareTo(billTest2));
+		
+//		Date testDate1 = new Date(5,04,2016);
+//		Date testDate2 = new Date(5,05,2017);
+//		System.out.println(testDate1.compareTo(testDate2));
+		
+//		Money moneyTest1 = new Money(20);
+//		Money moneyTest2 = new Money(25);
+//		System.out.println(moneyTest1.compareTo(moneyTest2));
+		
+		
+		/*				End Testing compareTo() method			*/
+		/********************************************************/
+		
 		//checking the equals method
 		//will be reused a few times to 
 		//keep track of the bills.

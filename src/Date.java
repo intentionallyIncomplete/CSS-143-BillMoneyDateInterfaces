@@ -39,6 +39,15 @@ public class Date implements Comparable, Cloneable, Serializable{
 		this.month = other.month;
 		this.year = other.year;
 	}
+	
+	public Date clone(){
+		try{
+			Date newDate = (Date) super.clone();
+			return newDate;
+		}catch(CloneNotSupportedException e){
+			return null;
+		}
+	}
 
 	/*****************************************************/
 	/* the isAfter method will return false under any	 */
@@ -55,6 +64,7 @@ public class Date implements Comparable, Cloneable, Serializable{
 	}
 
 	//checking for equivalence
+	@Override
 	public boolean equals(Object date){
 		//using the custom toString method on both
 		//objects is necessary to be able to compare them
@@ -68,6 +78,7 @@ public class Date implements Comparable, Cloneable, Serializable{
 		}
 	}
 
+	@Override
 	public int compareTo(Object otherDate){
 		Date tempDateObj = (Date) otherDate;
 
@@ -77,7 +88,22 @@ public class Date implements Comparable, Cloneable, Serializable{
 		}else if(getDay() > tempDateObj.getDay()){
 			System.out.println("Current day comes before the previous day input");
 			return -1;
-		}else{return 1;}
+		}else if(getMonth() < tempDateObj.getDay()){
+			System.out.println("Current month comes after the previous month");
+			return -1;
+		}else if(getMonth() > tempDateObj.getMonth()){
+			System.out.println("Current month comes before the previous month");
+			return -1;
+		}else if(getYear() < tempDateObj.getYear()){
+			System.out.println("Current year comes after the previous year");
+			return -1;
+		}else if(getYear() > tempDateObj.getYear()){
+			System.out.println("Current year comes before the previous year");
+			return -1;
+		}else{
+			System.out.println("Dates are the same");
+			return 1;
+		}
 	}
 
 	/*****************/
@@ -136,7 +162,7 @@ public class Date implements Comparable, Cloneable, Serializable{
 	/**************/
 	/* end setters*/
 	/**************/
-
+	@Override
 	public String toString(){
 		return month + "/" + day + "/" + year;
 	}

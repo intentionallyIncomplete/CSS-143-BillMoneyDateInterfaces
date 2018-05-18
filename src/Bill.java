@@ -38,7 +38,21 @@ public class Bill implements Comparable, Cloneable, Serializable{
 		this.originator = toCopy.originator;
 	}
 	
-	
+	public Bill clone(){
+		try {
+			Bill newBill = (Bill) super.clone();
+			newBill.amount = this.amount.clone();
+			newBill.dueDate = this.dueDate.clone();
+			if(isPaid()){
+				newBill.paidDate = this.paidDate.clone();
+			}
+			return newBill;
+		} catch (CloneNotSupportedException e) {
+			System.out.println(e);
+			return null;
+		}
+		
+	}
 
 	/****************************************************/
 	/* This method will check if the amount of money 	*/
