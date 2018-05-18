@@ -1,4 +1,4 @@
-public class ArrayList {
+public class ArrayList<T> {
 
 	/*****************************************************/
 	/*					class variables					 */
@@ -17,6 +17,11 @@ public class ArrayList {
 		this.arrListSize = arrListSize;
 		this.arrList = new Object[arrListSize];
 	}
+	
+	public ArrayList(){
+		arrList = new Object[10];
+		nextElement = 0;
+	}
 
 	/*****************************************************/
 	/* takes in an object and the specified index ## in	 */
@@ -26,7 +31,6 @@ public class ArrayList {
 	public void insert(Object anElement, int index){
 			arrList[index] = anElement;
 	}
-
 
 	/*****************************************************/
 	/* checks first if the array is populated, then 	 */
@@ -65,6 +69,12 @@ public class ArrayList {
 			return true;
 		}else{
 			return false;
+		}
+	}
+	
+	public int getNextElement(){
+		for(int i=0;i<){
+			
 		}
 	}
 	
