@@ -170,6 +170,7 @@ public class Bill implements Comparable, Cloneable, Serializable{
 	public boolean setAmount(Money amount){
 		if(isPaid()){
 			assert(amount != null);
+			this.amount.setMoney(0, 0);
 			return false;
 		}else{
 			this.amount = amount;

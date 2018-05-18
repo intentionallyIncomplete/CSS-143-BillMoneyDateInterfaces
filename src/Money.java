@@ -72,8 +72,8 @@ public class Money implements Comparable, Cloneable, Serializable{
 		Money tempMoneyObj = (Money) otherMoney;
 		
 		if(this.equals(tempMoneyObj)){
-			return -1;
-		}else{return 1;}
+			return 1;
+		}else{return -1;}
 	}
 	
 	/* Will take in dollar amount and add to current count.*/
@@ -116,12 +116,12 @@ public class Money implements Comparable, Cloneable, Serializable{
 	/****************************************************/
 	public void setMoney(int dollars, int cents){
 		this.dollars = dollars;
-		//this.cents = ((double)this.cents/100);
 		this.cents = cents;
 	}
 
-	//String.format(format, arg) is there to set the returned amount
-	//to display as a number with two decimal places
+	/*String.format(format, arg) is there to set the returned amount
+	* to display as a number with two decimal places
+	*/
 	@Override
 	public String toString(){
 		return "$" + String.format("%.2f", getMoney());

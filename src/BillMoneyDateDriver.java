@@ -91,7 +91,9 @@ public class BillMoneyDateDriver
 		
 		Bill billTest1 = new Bill(amount, dueDate, "the phone company");
 		Bill billTest2 = new Bill(amount1, dueDate, "the evil phone company");
-		System.out.println(billTest1.compareTo(billTest2));
+		
+//		System.out.println(amount.compareTo(amount1));
+//		System.out.println(billTest1.compareTo(billTest2));
 		
 //		Date testDate1 = new Date(5,04,2016);
 //		Date testDate2 = new Date(5,05,2017);
@@ -129,8 +131,6 @@ public class BillMoneyDateDriver
 //		bill1.setPaid(datePaid);
 //		System.out.println("----------Bill 1------------");
 //		System.out.println(bill1);
-		
-		
-		
+				
 	}
 }
