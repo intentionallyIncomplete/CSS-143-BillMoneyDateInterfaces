@@ -17,9 +17,9 @@ public class ArrayList<T> {
 		this.arrListSize = arrListSize;
 		this.arrList = new Object[arrListSize];
 	}
-	
+
 	public ArrayList(){
-		arrList = new Object[5];
+		arrList = new Object[1];
 		nextElement = 0;
 	}
 
@@ -29,9 +29,13 @@ public class ArrayList<T> {
 	/* does not check for valid input					 */
 	/*****************************************************/
 	public void insert(Object anElement, int index){
-			arrList[index++] = anElement;
+		arrList[index] = anElement;
 	}
 
+	public int getIndex(){
+		int index = arrList.length -1;
+		return index;
+	}
 	/*****************************************************/
 	/* checks first if the array is populated, then 	 */
 	/* prints a message about the next step which is the */
@@ -71,22 +75,41 @@ public class ArrayList<T> {
 			return false;
 		}
 	}
-	
+
 	/*
-	 * 
-	 * 
+	 * This method is used to find the next available space
+	 * in the list to add the next Bill. 
+	 * The list is iterated over and each space is 
+	 * checked for a null value.
 	 * */
-	public int getNextElement(){
-		for(int i=0;i<arrList.length;i++){
-			if(arrList[i] == null){
-				return nextElement;
-			}else{
-				return -1;
-			}
-		}
-		return nextElement;
-	}
-	
+//	public int getNextElement(){
+//		for(int i=0;i<arrList.length;i++){
+//			if(arrList[i] == null){
+//				nextElement = indexOf(arrList[i]);
+//				return nextElement;
+//			}else{
+//				return -1;
+//			}
+//		}
+//		return nextElement;
+//	}
+
+	/*
+	 * This method will iterate over the current list looking for an object
+	 * specified. The use of this method in the getNextElement function
+	 * is to find a null object and return it's position. This way it 
+	 * can be filled by an object if the addABill method is invoked
+	 * in the ExpenseAccount class.
+	 * */
+//	public int indexOf(Object obj) {
+//		for (int i = 0; i < arrList.length; i++) {
+//			if (arrList[i].equals(obj)) {
+//				return i;
+//			}
+//		}
+//		return -1;
+//	}
+
 	/*****************************************************/
 	/* This toString method will override the default    */
 	/* toString method. The StringBuilder will build an  */
@@ -96,7 +119,7 @@ public class ArrayList<T> {
 	@Override
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
-		
+
 		while(arrList[nextElement] != null){
 			sb.append(" ").append(arrList[nextElement]);
 		}

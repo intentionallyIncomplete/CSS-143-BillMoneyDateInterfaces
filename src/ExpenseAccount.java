@@ -25,7 +25,7 @@ public class ExpenseAccount extends ArrayList<Bill> {
 	 * */
 	public void addABill(Bill aBill){
 		if(aBill != null){
-			listOfBills.insert(aBill, getNextElement());
+			listOfBills.insert(aBill, getIndex());
 		}else{
 			System.out.println("Bill is not valid or null");
 		}
@@ -55,13 +55,8 @@ public class ExpenseAccount extends ArrayList<Bill> {
 	 * the program exits.
 	 * 
 	 * */
+	@Override
 	public void show(){
-		try{
-			listOfBills.show();
-		}catch(NullPointerException npe){
-			System.out.println("------------------\n"
-					+ "End of the list of Bills");
-			System.exit(0);
-		}
+		listOfBills.show();
 	}
 }

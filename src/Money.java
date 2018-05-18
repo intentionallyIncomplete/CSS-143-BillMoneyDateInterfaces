@@ -26,17 +26,13 @@ public class Money implements Comparable, Cloneable, Serializable{
 		this.cents = other.cents;
 	}
 	
-	/* *
-	* This clone() method 
-	*
-	*
-	* @param
-	* @param
-	* @param
-	* @param
-	* @see
-	* @see
-	* */
+	/*
+	 * This method follows the same logic as the other
+	 * clone() methods in Date and Bill.
+	 * 
+	 * @see Date
+	 * @see Bill
+	 * */
 	@Override
 	public Money clone(){
 		try{
@@ -47,11 +43,16 @@ public class Money implements Comparable, Cloneable, Serializable{
 		}
 	}
 
-	//if the current object's return value
-	//is equal to the one compared against, 
-	//print a message and return true,
-	//else print a different message and return false.
-	//the equals method here compares them as doubles.
+	/*
+	 * If the current object's return value(non-Javadoc)
+	 * is equal to the one compared against,
+	 * print a message and return true,
+	 * else print a different message and return false.
+	 * the equals method here compares them as doubles.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+
 	@Override
 	public boolean equals(Object otherAmount){
 		Money tempMoneyObj = (Money) otherAmount;
@@ -64,7 +65,13 @@ public class Money implements Comparable, Cloneable, Serializable{
 	}
 	
 	/*
+	 * This method works similar in logic to the other
+	 * classes compareTo methods that use the overriden
+	 * equals() method of that class to compare the object's values
+	 * against each other.
 	 * 
+	 * @see Date
+	 * @see Money
 	 * */
 	@Override
 	public int compareTo(Object otherMoney){
@@ -81,16 +88,21 @@ public class Money implements Comparable, Cloneable, Serializable{
 		this.dollars += dollars;
 	}
 
-	//takes in dollars and cents to add their sums
-	//individually to the current count.
+	/* 
+	 * Takes in dollars and cents to add their sums
+	 * individually to the current count.
+	 */
 	public void add(int dollars, int cents){
 		this.dollars += dollars;
 		this.cents = cents;
 	}
 	
-	//will add the handed Money object's value
-	//to the count of the current object's value
-	//individually for dollars and cents.
+	/*
+	 * Will add the handed Money object's value
+	 * to the count of the current object's value
+	 * individually for dollars and cents.
+	 */
+
 	public void add(Money other){
 		this.dollars += other.dollars;
 		this.cents += other.cents;
