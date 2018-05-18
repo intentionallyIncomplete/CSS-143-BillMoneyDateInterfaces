@@ -12,8 +12,8 @@ public class BillMoneyDateDriver
 	public static void main(String[] args)
 	{
 		//Construct some money
-		//Money money1 = new Money(10);
-		//Money money1 = new Money(10,1);
+//		Money money = new Money(10);
+//		Money money1 = new Money(10,1);
 		//Money money1 = new Money(10,99);
 		//Money money1 = new Money(10,101);
 		//Money money2 = new Money(12);
@@ -45,14 +45,14 @@ public class BillMoneyDateDriver
 		/****************************************************/
 		/* Testing the Date class */
 		/****************************************************/
-		Date date1 = new Date(1,1,2016);
-		Date date2 = new Date(1,1,2016);
-
-		assert(date1 != null);
-		assert(date2 != null);
-
-		System.out.println(date1);
-		System.out.println(date2);
+//		Date date1 = new Date(1,1,2016);
+//		Date date2 = new Date(1,1,2016);
+//
+//		assert(date1 != null);
+//		assert(date2 != null);
+//
+//		System.out.println(date1);
+//		System.out.println(date2);
 
 		//checking the isAfter functionality
 		//comments on method functionality in Date class
@@ -70,6 +70,7 @@ public class BillMoneyDateDriver
 		/*****************************************************/
 		//Construct some bills
 		Money amount = new Money(50);
+		Money amount1 = new Money(25);
 		Date dueDate = new Date(4, 30, 2017);
 		Date datePaid = new Date(5, 15, 2017);
 
@@ -78,34 +79,37 @@ public class BillMoneyDateDriver
 		//'dueDate'. Then copy it using the copy ctor in
 		//the Bill class.
 		Bill bill1 = new Bill(amount, dueDate, "The phone company");
-		Bill bill2 = new Bill(bill1);
+		Bill bill2 = new Bill(amount1, dueDate, "Another Company");
 
 		System.out.println("----------Bill 1------------");
-		System.out.println(bill1);
+		//System.out.println(bill1);
 		System.out.println("----------Bill 2------------");
-		System.out.println(bill2);
-		
+		//System.out.println(bill2);
+		System.out.println(bill1.compareTo(bill2));
 		//checking the equals method
 		//will be reused a few times to 
 		//keep track of the bills.
-		System.out.println("---------------------------");
-		System.out.println("Bill has been not updated?: " + bill1.equals(bill2));
+//		System.out.println("---------------------------");
+//		System.out.println("Bill has been not updated?: " + bill1.equals(bill2));
 
 		//using the setDueDate method that resets the
 		//dueDate value on the conditions of the isPaid
 		//method in the Bill class.
-		bill1.setDueDate(new Date(5, 30, 2017));
-		System.out.println("----------Bill 1------------");
-		System.out.println(bill1);
-		System.out.println("---------------------------");
-		System.out.println("Bill has been not updated?: " + bill1.equals(bill2));
+//		bill1.setDueDate(new Date(5, 30, 2017));
+//		System.out.println("----------Bill 1------------");
+//		System.out.println(bill1);
+//		System.out.println("---------------------------");
+//		System.out.println("Bill has been not updated?: " + bill1.equals(bill2));
 		
 		//checking the setPaid method
 		//and setting the amount to 0 to show this.
-		Money newAmount = new Money(0);
-		bill1.setAmount(newAmount);
-		bill1.setPaid(datePaid);
-		System.out.println("----------Bill 1------------");
-		System.out.println(bill1);
+//		Money newAmount = new Money(0);
+//		bill1.setAmount(newAmount);
+//		bill1.setPaid(datePaid);
+//		System.out.println("----------Bill 1------------");
+//		System.out.println(bill1);
+		
+		
+		
 	}
 }

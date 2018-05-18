@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Bill {
+public class Bill implements Comparable, Cloneable, Serializable{
 
 	/****************************************************/
 	/* These are objects from the Money and Date class  */
@@ -36,6 +37,8 @@ public class Bill {
 		this.paidDate = toCopy.paidDate;
 		this.originator = toCopy.originator;
 	}
+	
+	
 
 	/****************************************************/
 	/* This method will check if the amount of money 	*/
@@ -60,6 +63,28 @@ public class Bill {
 			return false;
 		}
 	}
+	
+	
+	/*
+	 * 
+	 * 
+	 * */
+	public int compareTo(Object other){
+		
+		Bill tempBillObj = (Bill) other;
+		
+		if(!getAmount().equals(tempBillObj.getAmount())){
+			System.out.println("Amounts are different");
+			return -1;
+		}else if(!getDueDate().equals(tempBillObj.getDueDate())){
+			System.out.println("Due dates are not the same");
+			return -1;
+		}else if(!getOriginator().equals(tempBillObj.getOriginator())){
+			System.out.println("The origin of the bill is no longer the same");
+			return -1;
+		}else{return 1;}
+	}
+	
 	/****************************************************/
 	/* Begin getters*/
 	/****************************************************/
